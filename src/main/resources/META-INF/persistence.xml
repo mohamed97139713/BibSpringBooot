@@ -11,8 +11,8 @@
             <!-- JDBC Verbindungsdetails -->
             <property name="jakarta.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:oracle:thin:@//localhost:1521/XEPDB1"/>
-            <property name="jakarta.persistence.jdbc.user" value="slice"/>
-            <property name="jakarta.persistence.jdbc.password" value="MyOracleDB22"/>
+            <property name="jakarta.persistence.jdbc.user" value="bib"/>
+            <property name="jakarta.persistence.jdbc.password" value="1111"/>
 
             <!-- Hibernate spezifische Konfiguration -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>
