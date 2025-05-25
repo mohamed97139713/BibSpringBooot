@@ -28,6 +28,6 @@ public class BuchService {
     }
 
     public void deleteBookById(Long id) {
-        buchRepository.deleteById(id);
+        buchRepository.delete(id);
     }
 }

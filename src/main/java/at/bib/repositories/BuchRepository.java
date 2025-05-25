@@ -57,6 +57,24 @@ public class BuchRepository {
         return query.getResultList();
     }
 
+    public void delete(Long id) {
+        EntityManager em = getEntityManager();
+        startTransaction();
+        try {
+            Buch buch = em.find(Buch.class, id);
+            if (buch != null) {
+                em.remove(buch);
+            }
+            commitTransaction();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
+    }
+
+
     public void deleteById(Long id) {
         EntityManager em = getEntityManager();
         startTransaction();
