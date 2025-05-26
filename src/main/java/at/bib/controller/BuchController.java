@@ -34,4 +34,10 @@ public class BuchController {
     public void deleteBook(@PathVariable Long id) {
         buchService.deleteBookById(id);
     }
+
+    // Neues Update Endpoint:
+    @PutMapping("/books/{id}")
+    public void updateBook(@PathVariable Long id, @RequestBody BuchDTO buch) {
+        buchService.updateBook(id, buch);
+    }
 }
