@@ -99,6 +99,23 @@ public class BuchRepository {
         return Optional.ofNullable(buch);
     }
 
+    public void saveAll(List<Buch> buecher) {
+        EntityManager em = getEntityManager();
+        startTransaction();
+        try {
+            for (Buch buch : buecher) {
+                em.merge(buch);
+            }
+            commitTransaction();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
+    }
+
+
     public void close() {
         emf.close();
     }
