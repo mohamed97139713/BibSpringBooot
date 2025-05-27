@@ -27,16 +27,6 @@ public class BibApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-//        BuchDTO buchDTO = BuchDTO.builder()
-//                .titel("Kimbo")
-//                .autor("Kimbo")
-//                .erscheinungsjahr(2004)
-//                .verfuegbar("J")
-//                .build();
-//
-//        Buch buch = buchMapper.toEntity(buchDTO);
-//        System.out.println();
-//        buchRepository.save(buch);
         List<BuchDTO> buecher = List.of(
                 BuchDTO.builder().titel("Der Alchimist").autor("Paulo Coelho").erscheinungsjahr(1988).verfuegbar("J").build(),
                 BuchDTO.builder().titel("Schatten des Windes").autor("Carlos Ruiz Zafón").erscheinungsjahr(2001).verfuegbar("J").build(),
