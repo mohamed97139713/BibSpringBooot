@@ -1,6 +1,7 @@
 package at.bib.controller;
 
 import at.bib.dtos.BuchDTO;
+import at.bib.dtos.BuchPageDTO;
 import at.bib.service.BuchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,9 +36,13 @@ public class BuchController {
         buchService.deleteBookById(id);
     }
 
-    // Neues Update Endpoint:
     @PutMapping("/books/{id}")
     public void updateBook(@PathVariable Long id, @RequestBody BuchDTO buch) {
         buchService.updateBook(id, buch);
+    }
+
+    @GetMapping("/books/paginated/{page}/{size}")
+    public BuchPageDTO getBooksPaginatedWithCount(@PathVariable int page, @PathVariable int size) {
+        return buchService.getBooksPaginatedWithCount(page, size);
     }
 }

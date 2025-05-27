@@ -1,5 +1,6 @@
 package at.bib.repositories;
 
+import at.bib.dtos.BuchDTO;
 import at.bib.model.Buch;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -115,6 +116,28 @@ public class BuchRepository {
         }
     }
 
+    public List<Buch> getBooksPaginated(int page, int size) {
+        EntityManager em = getEntityManager();
+        try {
+            TypedQuery<Buch> query = em.createQuery("SELECT b FROM Buch b ORDER BY b.id", Buch.class);
+            int offset = (page > 0) ? (page - 1) * size : 0;
+            query.setFirstResult(offset);
+            query.setMaxResults(size);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+
+    public long countBooks() {
+        EntityManager em = getEntityManager();
+        try {
+            return em.createQuery("SELECT COUNT(b) FROM Buch b", Long.class).getSingleResult();
+        } finally {
+            em.close();
+        }
+    }
 
     public void close() {
         emf.close();
