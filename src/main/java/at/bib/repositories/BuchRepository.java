@@ -1,6 +1,5 @@
 package at.bib.repositories;
 
-import at.bib.dtos.BuchDTO;
 import at.bib.model.Buch;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
